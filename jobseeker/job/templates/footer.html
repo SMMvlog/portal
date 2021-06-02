@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+</head>
+<body>
+    <div class="mt-2" style="background-color: black; width: 100%; height: 350px;">
+
+    <div class="container">
+    <div class="row">
+    <div class="col-md-4">
+    <h3 class="text-white">Contact Informartion</h3>
+    <p style="color:yellow;"> <i class="fa fa-map-marker text-danger"></i> Mumbra Thane,Maharashtra </p>
+    <p style="color:yellow;"> <i class="far fa-envelope text-danger"></i> smmvlog93@gmail.com </p>
+    <p style="color:yellow;"> <i class="fas fa-id-card text-danger"></i> P: +91 8828319602 / +919022721275 </p>
+    <p style="color:yellow;"> <i class="fad fa-globe text-danger"></i> W: www.smmvlog.com </p>
+    </div>
+    <div class="col-md-4">
+    <h3 class="text-white"> Online Placement </h3>
+    <p style="color:yellow;"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus perferendis minima voluptate iure ut quisquam illum laboriosam! Sapiente quos odit incidunt quasi recusandae voluptates porro magni sit asperiores blanditiis! Itaque. </p>
+    </div> 
+    <div class="col-md-4">
+    <h3 class="text-white"> Newsletter </h3>
+    <p style="color:yellow;"> If you want to any extra information then then send me your email id </p>
+    <form action="" method="post" class="align-items-center">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter Email ID" required>
+    <input type="submit" value="send" class="btn btn-primary" style="height:34px;" required>
+    </form>
+    </div>
+
+    </div>
+
+    
+    </div>
+
+    
+    
+    
+    </div>
+</body>
+</html>

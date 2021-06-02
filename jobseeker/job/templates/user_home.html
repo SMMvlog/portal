@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<marquee class="mar">Users</marquee>
+<div class="container-fluid" style="background-color:gray; width:100%; height:410px;">
+<div class="container">
+<table class="table">
+<thead style="background-color:#060635; color:antiquewhite">
+<tr>
+<th> Sr No. </th>
+<th> User's Name </th>
+<th> User's Contact No. </th>
+<th> User's Email ID </th>
+<th> User's Gender </th>
+<th> Image </th>
+</tr>
+</thead>
+
+<tbody class="table-light">
+{% for usr in users %}
+<tr>
+<td> {{forloop.counter}}</td>
+<td> {{usr.user.first_name}} {{usr.user.last_name}}</td>
+<td> {{usr.mobile}}</td>
+<td> {{usr.user.username}}</td>
+<td> {{usr.gender}}</td>
+<td> <img src="{{usr.image.url}}" style="width:80px; height:80px; border-radius:50px"></td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+</div>
+</div>
+
+{% ifequal error "no" %}
+<script>
+alert("Welcome {{request.user.first_name}}!!");
+window.location = ("{% url 'home'%}")
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+
+<script>
+alert("something went wrong!");
+window.location('{% url "usersignup" %}');
+</script>
+{% endifequal %}
+
+{% endblock body %}

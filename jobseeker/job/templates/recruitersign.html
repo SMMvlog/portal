@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<script>
+function checkpass1(){
+    if(document.signup1.cpass.value!=document.signup1.pass.value)
+    {
+        alert("Password And confrim password are not same!!")
+        document.signup.cpass.focus();
+        return false;
+    }
+    return true;
+}
+</script>
+
+<marquee class="mar">Recruiter Signup</marquee>
+<div class="container-fluid" style="background-color:gray; width:100%; height:430px;">
+<form action="" method="post" onsubmit="return checkpass1()" name="signup1" enctype="multipart/form-data">
+<div class="container">
+{% csrf_token %}
+<div class="row">
+<div class="form-group col-md-6">
+<label for="fname" class="fw-bold">First Name:</label>
+<input type="text" name="fname" class="form-control" placeholder="Enter your first name" required>
+</div>
+
+<div class="form-group col-md-6">
+<label for="lname" class="fw-bold">Last Name:</label>
+<input type="text" name="lname" class="form-control" placeholder="Enter your last name" required>
+</div>x`
+</div>
+
+<div class="row mt-3">
+<div class="form-group col-md-6">
+<label for="mobile" class="fw-bold">Mobile No:</label>
+<input type="text" name="mobile" class="form-control" placeholder="Enter your first name" required>
+</div>
+
+<div class="form-group col-md-6">
+<label for="email" class="fw-bold">Email ID:</label>
+<input type="email" name="email" class="form-control" placeholder="Enter your email id" required>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="form-group col-md-6">
+<label for="pass" class="fw-bold">Password:</label>
+<input type="password" name="pass" class="form-control" placeholder="Enter your Password" required>
+</div>
+
+<div class="form-group col-md-6">
+<label for="cpass" class="fw-bold">Confirm Password:</label>
+<input type="password" name="cpass" class="form-control" placeholder="Enter your Confirm Password" required>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="form-group col-md-11">
+<label for="com" class="fw-bold">Comapny Name:</label>
+<input type="text" name="com" class="form-control" placeholder="Enter Company Name" required>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="form-group col-md-6">
+<div class="custom-control custom-radio">
+<label class="fw-bold"> Gender: </label>
+<div style="border:1px solid #ced4da; height:37px; border-radius: 4px;
+    padding: 2px;">
+    <input type="radio" class="custom-control-input ms-2" id="customRadio1" name="gender" value="male">
+    <label class="custom-control-label fw-bold me-3" for="customRadio">Male</label>
+    <input type="radio" class="custom-control-input ms-5" id="customRadio2" name="gender" value="female">
+    <label class="custom-control-label fw-bold" for="customRadio">Female</label>
+    </div>
+  </div>
+
+</div>
+
+<div class="form-group col-md-6">
+<label for="image" class="fw-bold">Upload Photo:</label>
+<input type="file" name="image" class="form-control" placeholder="Enter your Confirm Password">
+</div>
+</div>
+<input type="submit" value="Submit" class="btn btn-primary mt-3" style="background-color:black; color:darkcyan; margin-top:10px;">
+</form>
+</div>
+</div>
+
+{% ifequal error "already" %}
+<script>
+alert("The Email ID is Already Exists!");
+window.location=('{% url "recruitersign" %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "no" %}
+<script>
+alert("Your Account created succesfully!");
+window.location=('{% url "recruitersign" %}')
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+alert("something went wrong!");
+window.location=('{% url "recruitersign" %}');
+</script>
+{% endifequal %}
+
+{% endblock body %}

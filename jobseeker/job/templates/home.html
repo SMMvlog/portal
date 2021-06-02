@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+{% ifequal loginu "no"  %}
+<script>
+alert("You are already Login")
+</script>
+{% endifequal %}
+
+<div class="container-fluid">
+<img src="{% static "images/job1.jpg"%}" class="jb1">
+</div>
+
+<div class="container mt-4" style="background-color:black; width:100%; height:520px; max-width:90%;">
+<h1 class="text-center text-white">----------| OUR PLACED STUDENTS |------------</h1>
+<div class="row">
+<div class="col-md-3">
+<img src="{% static 'images/f1.jpg' %}" class="content">
+<p class="content1"> Facebook </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f2.jpg' %}" class="content">
+<p class="content1"> Amazone </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f3.jpg' %}" class="content">
+<p class="content1"> Wipro </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f4.jpg' %}" class="content">
+<p class="content1"> YouTube </p>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<img src="{% static 'images/f1.jpg' %}" class="content">
+<p class="content1"> Instagram </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f2.jpg' %}" class="content">
+<p class="content1"> LinkdIn </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f3.jpg' %}" class="content">
+<p class="content1"> Tesla </p>
+</div>
+
+<div class="col-md-3">
+<img src="{% static 'images/f4.jpg' %}" class="content">
+<p class="content1"> Apple </p>
+</div>
+</div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock body %}
